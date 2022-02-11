@@ -89,7 +89,7 @@ stories:
   steps:
     - checkpoint: final_state
     - intent: gratitude
-    - action: utter_thanks
+    - action: utter_welcome
 
 - story: know more details
   steps:

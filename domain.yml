@@ -56,6 +56,8 @@ responses:
   - text: The district is {district}.
   utter_thanks:
   - text: Thanks!
+  utter_welcome:
+  - text: Welcome!
   utter_recommend_know_more:
   - text: To know more please type "Know More".
 

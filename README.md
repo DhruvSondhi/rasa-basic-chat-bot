@@ -26,5 +26,5 @@ To try out this bot, do the following steps:
 For further details about working of the chat bot & other functionality, please checkout the [RASA Documentation](https://rasa.com/docs/rasa/).
 
 ## Example conversation
-![](https://drive.google.com/file/d/14ItWeLoattWuXHlPukIaT4L3w55wR95s/view?usp=sharing)
+<img src='https://drive.google.com/uc?id=14ItWeLoattWuXHlPukIaT4L3w55wR95s'>
 
