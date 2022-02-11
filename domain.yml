@@ -1,0 +1,73 @@
+version: '2.0'
+
+intents:
+- check_pincode:
+    use_entities:
+      - pincode
+- check_city:
+    use_entities:
+      - city
+- check_state:
+    use_entities:
+      - state
+- check_district:
+    use_entities:
+      - district
+- know_location
+- know_more
+- gratitude
+- greet
+- goodbye
+- affirm
+- deny
+- mood_great
+- mood_unhappy
+- bot_challenge
+
+entities:
+- pincode
+- city
+- state
+- district
+
+responses:
+  utter_greet:
+  - text: Hey! I am a Location Bot. Please type "Know My Location" to get details of your location based on your pincode.
+  utter_cheer_up:
+  - text: 'Here is something to cheer you up:'
+    image: https://i.imgur.com/nGF1K8f.jpg
+  utter_did_that_help:
+  - text: Did that help you?
+  utter_happy:
+  - text: Great, carry on!
+  utter_goodbye:
+  - text: Bye
+  utter_iamabot:
+  - text: I am a location bot, powered by Rasa.
+  utter_options:
+  - text: What do you want to know? 1. State, 2. City, 3. District
+  utter_req_pincode:
+  - text: Please provide your Pincode.
+  utter_city:
+  - text: The city is {city}.
+  utter_state:
+  - text: The state is {state}.
+  utter_district:
+  - text: The district is {district}.
+  utter_thanks:
+  - text: Thanks!
+  utter_recommend_know_more:
+  - text: To know more please type "Know More".
+
+actions:
+- action_get_city
+- action_get_state
+- action_get_district
+
+slots:
+  pincode:
+    type: float
+
+session_config:
+  session_expiration_time: 60
+  carry_over_slots_to_new_session: true

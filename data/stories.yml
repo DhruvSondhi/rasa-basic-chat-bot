@@ -1,0 +1,99 @@
+version: "2.0"
+
+stories:
+
+- story: happy path
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_great
+  - action: utter_happy
+
+- story: sad path 1
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: affirm
+  - action: utter_happy
+
+- story: sad path 2
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: mood_unhappy
+  - action: utter_cheer_up
+  - action: utter_did_that_help
+  - intent: deny
+  - action: utter_goodbye
+
+- story: get option
+  steps:
+  - intent: greet
+  - action: utter_greet
+  - intent: know_location
+  - action: utter_options
+  - checkpoint: check_option_value
+
+- story: get state from pincode
+  steps:
+  - checkpoint: check_option_value
+  - intent: check_state
+    entities:
+      - state
+  - action: utter_req_pincode
+  - intent: check_pincode
+    entities:
+      - pincode
+  - slot_was_set:
+    - pincode: 123456
+  - action: action_get_state
+  - action: utter_recommend_know_more
+  - checkpoint: final_state
+
+- story: get city from pincode
+  steps:
+  - checkpoint: check_option_value
+  - intent: check_city
+    entities:
+      - city
+  - action: utter_req_pincode
+  - intent: check_pincode
+    entities:
+      - pincode
+  - slot_was_set:
+    - pincode: 123456
+  - action: action_get_city
+  - action: utter_recommend_know_more
+  - checkpoint: final_state
+
+- story: get district from pincode
+  steps:
+  - checkpoint: check_option_value
+  - intent: check_district
+    entities:
+      - district
+  - action: utter_req_pincode
+  - intent: check_pincode
+    entities:
+      - pincode
+  - slot_was_set:
+    - pincode: 123456
+  - action: action_get_district
+  - action: utter_recommend_know_more
+  - checkpoint: final_state
+
+- story: end conversation
+  steps:
+    - checkpoint: final_state
+    - intent: gratitude
+    - action: utter_thanks
+
+- story: know more details
+  steps:
+    - checkpoint: final_state
+    - intent: know_more
+    - action: utter_options
+    - checkpoint: check_option_value
